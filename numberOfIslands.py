@@ -27,5 +27,4 @@ class Solution:
         
             if row >= 0 and row < len(grid) and col >= 0 and col < len(grid[0]) and grid[row][col] == '1':
             #if row >= 0 and row < m and col >= 0 and col < n and grid[row][col] == '1':
-
                 self.dfs(row,col,grid)
