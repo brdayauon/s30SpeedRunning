@@ -22,8 +22,7 @@ class Solution:
                 self.swap(nums, mid, left)
                 left += 1 
                 mid += 1
-        
-                
+                    
     def swap(self, nums, p1, p2):
         temp = nums[p1]
         nums[p1] = nums[p2]
