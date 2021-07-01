@@ -23,4 +23,4 @@ class Solution:
                 
         dfs(hm, 0, len(graph)-1, [0])
         
-        return self.res
+        return self.resd
