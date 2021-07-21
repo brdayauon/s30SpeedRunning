@@ -7,7 +7,7 @@ class Solution:
         
         rp = 1
         num = 1
-        for i in range(1,len(nums)):
+        for i in range(1,len(nums)): # [1,1,2,6] gets the running product up to that index
             rp = rp * nums[i-1]
             res[i] = rp
             
