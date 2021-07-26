@@ -8,32 +8,38 @@
 
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        """
-            IS:
-                - directed graph ...'
-                things to ask: build a graph based on given input? visited set necessary?
-                DID DFS WAY.. will put BFS approach later
-        """
-        if len(prerequisites)  == 0:
-            return True
+        #make adjacency list
+        indegree = [0] * numCourses
+        hm = {}
         
-        #build graph..want to know how many nodes point to this node know no.of prereq at I
-        holder = [0] * (numCourses)
-        for i in range(len(prerequisites)):
-            holder[prerequisites[i][0]] += 1
-
-        stack = [] 
-        for i in range(0,len(holder)):
-            if holder[i] == 0:
-                stack.append(i)
-        count = 0 
-        while stack:
-            curr = stack.pop()
-            count += 1
-            for i in range(len(prerequisites)):  #process graph node and DFS iteratively
-                if prerequisites[i][1] == curr:
-                    holder[prerequisites[i][0]] -= 1
-                    if (holder[prerequisites[i][0]] == 0):
-                        stack.append(prerequisites[i][0])
-                    
-        return count == numCourses
+        #creating indegrees but putting subjects into indegree array. as well as put into hm 
+        for edge in prerequisites:
+            indegree[edge[0]] += 1
+            if edge[1] not in hm:
+                hm[edge[1]] = []
+            hm[edge[1]].append(edge[0])
+                
+        queue = deque([])
+        #check for independent nodes
+        for i in range(len(indegree)):
+            if indegree[i] == 0:
+                queue.append(i)
+                
+        #process queue
+        while queue:
+            size = len(queue)
+            for i in range(size):
+                curr = queue.popleft()
+                if curr in hm:
+                    edges = hm[curr]
+                    if edges:
+                        for edge in edges:
+                            indegree[edge] -= 1
+                            if indegree[edge] == 0:
+                                queue.append(edge)
+                                
+        for i in range(len(indegree)):
+            if indegree[i] != 0:
+                return False
+            
+        return True
