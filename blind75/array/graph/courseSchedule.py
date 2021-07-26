@@ -1,3 +1,4 @@
+#BFS
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         #make adjacency list
@@ -31,6 +32,39 @@ class Solution:
                             if indegree[edge] == 0:
                                 queue.append(edge)
                                 
+        for i in range(len(indegree)):
+            if indegree[i] != 0:
+                return False
+            
+        return True
+
+#DFS
+class Solution:
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        #create adjacency list
+        indegree = [0 for i in range(numCourses)]
+        hm = {}
+        
+        for edge in prerequisites:
+            if edge[1] not in hm:
+                hm[edge[1]] = []
+            hm[edge[1]].append(edge[0])
+            indegree[edge[0]]+= 1
+            
+        stack = []
+        for i in range(len(indegree)):
+            if indegree[i] == 0:
+                stack.append(i)
+                
+        while stack:
+            curr = stack.pop()
+            if curr in hm:
+                neighbors = hm[curr]
+                for n in neighbors:
+                    indegree[n] -= 1
+                    if indegree[n] == 0:
+                        stack.append(n)
+                        
         for i in range(len(indegree)):
             if indegree[i] != 0:
                 return False
