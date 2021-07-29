@@ -75,3 +75,43 @@ class Solution:
                 return False
             
         return True
+
+
+
+"""
+MY SOLUTION FROM THE DOME EZPZ DFS
+"""
+class Solution:
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        #create indegree array
+        indegree = [0] * numCourses
+        
+         #create adjacency matrix
+        hm = {} 
+        for edge in prerequisites: 
+            indegree[edge[0]] += 1
+            if edge[1] not in hm:
+                hm[edge[1]] = []
+            hm[edge[1]].append(edge[0])
+            
+        stack = []
+        #go through indegree array to see independent nodes
+        for i in range(len(indegree)):
+            if indegree[i]==0:
+                stack.append(i)
+        
+        while stack:
+            curr = stack.pop()
+            
+            if curr in hm:
+                neighbors = hm[curr]
+                for n in neighbors:
+                    indegree[n] -= 1
+                    if indegree[n] == 0:
+                        stack.append(n)
+                        
+        #check if everything is 0
+        for i in range(len(indegree)):
+            if indegree[i] != 0:
+                return False
+        return True
