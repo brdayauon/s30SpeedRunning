@@ -51,3 +51,36 @@ class Solution:
         slow.next = slow.next.next 
         
         return dummy.next
+
+
+"""
+  dummy -> 1 -> 2 -> 3 -> 4 -> 5
+                fast
+          curr      fast
+               curr      fast
+                    curr      fast
+"""
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+        dummy = ListNode()
+        dummy.next = head
+        fast = dummy
+        while n > 0:
+            fast = fast.next 
+            n -= 1
+        
+        curr = dummy
+        
+        while fast.next:
+            curr = curr.next 
+            fast = fast.next 
+            
+        curr.next = curr.next.next 
+        
+        return dummy.next
