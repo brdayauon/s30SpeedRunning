@@ -64,3 +64,30 @@ class Solution:
 #             root = root.right 
         
 #         return total
+
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
+        
+        stack = [root]
+        total = 0
+        while stack:
+            
+            curr = stack.pop()
+            if curr:
+                if low <= curr.val and curr.val <= high:
+                    total += curr.val
+
+                if low < curr.val:
+                    stack.append(curr.left)
+                if high > curr.val:
+                    stack.append(curr.right)
+                
+        
+        return total
