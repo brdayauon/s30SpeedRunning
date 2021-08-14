@@ -42,3 +42,46 @@ class Solution(object):
                 matrix[i][0] = 0
             
         return matrix
+
+
+"""
+DONE 8/13/21
+"""
+
+class Solution:
+    def setZeroes(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        #at the end make entire top row 0
+        topRowEndZero = False
+        wholeTopRowZero = False
+        if matrix[0][0] == 0 or matrix[0][-1] == 0:
+            topRowEndZero = True
+        
+        #zero in top row
+        for i in range(len(matrix[0])):
+            if matrix[0][i] == 0:
+                wholeTopRowZero = True
+        
+        for i in range(1, len(matrix)):
+            for j in range(len(matrix[0])):
+                if matrix[i][j] == 0:
+                    matrix[i][0] = 0
+                    matrix[0][j] = 0
+        for i in range(1, len(matrix)):
+            if matrix[i][0] == 0:
+                #make entire row 0
+                for j in range(len(matrix[0])):
+                    matrix[i][j] = 0
+                    
+        for i in range(len(matrix[0])):
+            if matrix[0][i] == 0:
+                #make column to 0
+                for j in range(len(matrix)):
+                    matrix[j][i] = 0
+        if topRowEndZero or wholeTopRowZero:
+            for i in range(len(matrix[0])):
+                matrix[0][i] = 0
+        
+        
