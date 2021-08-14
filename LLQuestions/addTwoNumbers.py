@@ -74,3 +74,39 @@ class Solution:
             dummy.next = ListNode(1)
         return temp.next
                 
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        dummy = ListNode()
+        temp = dummy
+        x=y=0
+        c = 0
+        total = 0
+        while l1 or l2:
+            if l1:
+                total += l1.val
+                l1 = l1.next
+            else:
+                total += 0
+            if l2:
+                total+= l2.val 
+                l2 = l2.next 
+            else:
+                total += 0
+            dummy.next = ListNode(total%10)
+            dummy = dummy.next 
+            
+            if total > 9:
+                total = 1
+            else:
+                total = 0
+            
+        if total != 0:
+            dummy.next = ListNode(1)
+        return temp.next
+                
