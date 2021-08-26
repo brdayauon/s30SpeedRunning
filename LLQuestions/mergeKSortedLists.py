@@ -33,6 +33,7 @@ class Solution:
             dummy.next = l2
         return res.next 
 
+#TC: nklogk
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, val=0, next=None):
