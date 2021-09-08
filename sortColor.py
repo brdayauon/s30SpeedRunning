@@ -28,4 +28,4 @@ class Solution:
         nums[p1] = nums[p2]
         nums[p2] = temp
         
-        
+    s
