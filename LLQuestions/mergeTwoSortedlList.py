@@ -1,3 +1,14 @@
+"""
+    Create a dummy Head.
+    Have a pointer at l1 and at l2.
+    Connect the dummy head based on the values of l1 and l2 and then move the pointers as well. 
+    Then Return the LL.
+    TC: O(N)
+    SC: O(1)
+"""
+
+
+
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, val=0, next=None):
@@ -23,3 +34,4 @@ class Solution:
             curr.next = l2
             
         return dummy.next
+
