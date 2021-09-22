@@ -1,3 +1,33 @@
+"""
+Create a trie node class:
+    - each node is going to have a property of children {} and boolean isEnd.
+
+In class Trie:
+    - make a pointer to the head of the TrieNode():
+When inserting:
+    - we create a pointer to the head.
+    - iterate through the word.
+        - at each char .. create a TrieNode() if char does not exist amongst the children..
+        move current pointer (curr = curr.children[c])
+    - at the end set the isEnd boolean at the current TrieNode to True
+
+When searching: 
+    - we create a pointer to the head.
+    - iterate through the word.
+        - for each character.. if it is not amongst the children.. then return False
+        else move current pointer to the children.
+    - if the isEnd boolean property is true.. return True
+    - return False otherwise
+When startWith:
+    - we create pointer to the head
+    - we iterate through the word
+        - if character not among children.. return False 
+        - else move to children.
+    at the end return True
+
+"""
+
+
 class TrieNode:
     def __init__(self):
         self.children = {}
