@@ -1,3 +1,30 @@
+"""
+First solution: 
+    TC: O(kN)
+    SC: O(1)
+
+    Create a dummy head with value of -inf incase of getting -values in linkedlist
+
+    For each list in linked list.. we are going to merge every single one (refer to merge two sorted list problem)
+    then return the dummy.next
+
+Second solution:
+    TC: O(nklogk)
+    SC: O(N)
+
+    Create a node dummy..
+    Put all beginning in list into a priority queue.. 
+        - learn about changing the listNode properties
+                ListNode.__lt__ = (lambda a,b : a.val < b.val)
+
+    Once everything added to heap:
+        - Pop from the heap (which will be sorted when popped)
+        create the LL chain to the popped item. 
+    return LL
+"""
+
+
+
 #TC : O(kN)
 #SC: O(1)
 # Definition for singly-linked list.
