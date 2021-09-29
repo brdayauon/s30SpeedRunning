@@ -18,3 +18,5 @@
 # https://hackmd.io/@2aDFKMu8S2CUg05JnLuKKg/rkV803Vgw
 
 # https://leetcode.com/problems/connecting-cities-with-minimum-cost/
+
+#fix shit
