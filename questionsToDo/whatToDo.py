@@ -20,3 +20,5 @@
 # https://leetcode.com/problems/connecting-cities-with-minimum-cost/
 
 #fix shit
+
+#update twitter and google
