@@ -11,3 +11,5 @@ class Solution:
             else:
                 count += 1
         return count + len(stack)
+
+#question was asked for Twitter
