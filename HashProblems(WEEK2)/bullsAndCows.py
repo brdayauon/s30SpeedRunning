@@ -1,3 +1,11 @@
+"""
+since bulls represent the spots that are correct we are going to count it and skip over it
+cows represent what is there but is not in the right place.. 
+    so given that.
+    plan is:
+        - we gonna loop through and if the spots are bulls.. then we increase the count and have a counter frequency map for seenA and seenB
+        - then loop through B's map and check to see if A's and count cows accordingly.
+"""
 class Solution:
     def getHint(self, secret: str, guess: str) -> str:
         cows = 0
