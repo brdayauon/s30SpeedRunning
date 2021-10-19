@@ -1,3 +1,12 @@
+"""
+TC: O(N)
+SC: O(N)
+Create an array size of max number of days+1. with element 0
+Do a loop from 1 -> the last days and store values accordingly. 
+    - If i is not within days.. then keep the value as the same in the previous index. 
+    - if it is.. calculate the min amount needed up to that point.
+"""
+
 class Solution:
     def mincostTickets(self, days: List[int], costs: List[int]) -> int:
         mx = max(days)
