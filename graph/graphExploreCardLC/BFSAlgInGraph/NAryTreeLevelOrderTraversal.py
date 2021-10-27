@@ -1,11 +1,13 @@
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
+"""
+
 class Solution:
-    def levelOrder(self, root: TreeNode) -> List[List[int]]:
+    def levelOrder(self, root: 'Node') -> List[List[int]]:
         if not root:
             return []
         
@@ -16,13 +18,8 @@ class Solution:
             temp = []
             for i in range(size):
                 curr = queue.popleft()
-                
                 temp.append(curr.val)
-                if curr.left:
-                    queue.append(curr.left)
-                if curr.right:
-                    queue.append(curr.right)
-                    
+                for child in curr.children:
+                    queue.append(child)
             res.append(temp)
-            
-        return res
+        return res 
