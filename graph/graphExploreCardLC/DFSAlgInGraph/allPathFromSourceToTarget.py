@@ -1,3 +1,12 @@
+"""
+this question we start at node 0 and need to get to the last node.. given list of edges how can we get to there?
+
+#create adjacency list  O(N)
+
+#use a stack becuz DFS (put in curr node and curr path).. 
+
+"""
+
 class Solution:
     def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
         if not graph:
