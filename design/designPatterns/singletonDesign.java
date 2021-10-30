@@ -18,3 +18,7 @@ class Singleton
         return obj;
     }
 }
+
+
+
+// factory how the 
