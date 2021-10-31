@@ -1,0 +1,7 @@
+{
+    "java.project.sourcePaths": [
+        "design/designPatterns/factoryPattern",
+        "design/designPatterns/Singleton",
+        "design/designPatterns/builderDesignPattern"
+    ]
+}
